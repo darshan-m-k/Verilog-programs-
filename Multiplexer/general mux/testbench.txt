@@ -1,0 +1,36 @@
+module genmux_tb;
+
+  parameter N = 4;
+
+  reg  [N-1:0] i;
+  reg  [$clog2(N)-1:0] s;
+  wire y;
+
+  integer a;
+
+  // DUT instantiation
+  genmux #(N) dut (
+    .i(i),
+    .s(s),
+    .y(y)
+  );
+
+  initial begin
+    for (a = 0; a < (1 << (N + $clog2(N))); a = a + 1) begin
+      {i, s} = a;
+      #2;
+    end
+    $finish;
+  end
+
+  initial begin
+    $monitor("time=%0t | i=%b | s=%b | y=%b", 
+              $time, i, s, y);
+  end
+
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(0, genmux_tb);
+  end
+
+endmodule

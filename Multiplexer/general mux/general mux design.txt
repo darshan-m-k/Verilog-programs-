@@ -1,0 +1,7 @@
+
+module genmux #(parameter N=4)(i,s,y);
+  input [N-1:0]i;
+  input [$clog2(N):0]s;
+  output y;
+  assign y=((~s[0])&i[0])|((s[$clog2(N)])&(i[N-1]));
+endmodule
