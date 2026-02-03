@@ -1,0 +1,25 @@
+
+module FA_test;
+  reg A, B,cin;
+  wire s,cout;
+  fa dut(A,B,cin,s,cout);
+  initial begin
+   
+    		A = 1'b0; B = 1'b0; cin = 1'b0;
+    #10;    A = 1'b0; B = 1'b0; cin = 1'b1; 
+    #10;    A = 1'b0; B = 1'b1; cin = 1'b0;
+    #10;    A = 1'b0; B = 1'b1; cin = 1'b1; 
+    #10;    A = 1'b1; B = 1'b0; cin = 1'b0; 
+    #10;    A = 1'b1; B = 1'b0; cin = 1'b1;
+    #10;	A = 1'b1; B = 1'b1; cin = 1'b0; 
+    #10;    A = 1'b1; B = 1'b1; cin = 1'b1;
+  end
+  initial begin
+    $monitor("sintime=%0t,A=%b,B=%b,Cin=%b,s=%b,c=%b", $time, A,B, cin,s,cout);
+  end
+  initial begin
+    $dumpfile("dump.VCD");
+    $dumpvars(0, A, B, cin,s,cout);
+  end
+    
+endmodule

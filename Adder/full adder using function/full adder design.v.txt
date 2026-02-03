@@ -1,0 +1,12 @@
+// Code your design here
+module fa(A,B,cin,s,cout);
+  input A,B,cin;
+  output s,couut;
+  function [1:0] full_adder(input A,B,cin);
+    begin
+      full_adder=A+B+cin;
+    end
+      endfunction
+      assign {cout,s}=full_adder(A,B,cin);
+    endmofule
+    
