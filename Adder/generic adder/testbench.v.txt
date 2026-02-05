@@ -1,0 +1,23 @@
+// testbench for generic adder
+module genadder_tb;
+  reg [dut.N-1:0]a,b;
+  wire [dut.N:0]s;
+  integer i;
+  genadder dut(a,b,s);
+  initial begin
+    for( i=0;i<2**(2*dut.N);i=i+1)
+      begin
+        {a,b}=i;
+        #2;
+      end
+  end
+  initial begin
+    $monitor("time=%0t,a=%b,b=%b,s=%b",$time,a,b,s);
+  end
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(0,a,b,s);
+  end
+endmodule
+  
+
