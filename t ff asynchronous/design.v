@@ -1,9 +1,6 @@
 module t_ff_async (
-    input  wire clk,
-    input  wire rst_n, // active-low asynchronous reset
-    input  wire t,
-    output reg  q
-);
+    input  wire clk,rst_n,t, // active-low asynchronous reset
+    output reg  q);
 
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n)
@@ -13,5 +10,5 @@ always @(posedge clk or negedge rst_n) begin
     else
         q <= q;  // hold state
 end
-
 endmodule
+
