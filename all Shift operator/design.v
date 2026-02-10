@@ -3,12 +3,11 @@ module shift_operators (
     input [1:0] shift_amt, 
     output [3:0] shl, 
     output [3:0] shr, 
-    output signed [3:0] ashr 
-);
+    output signed [3:0] ashr );
     assign shl  = A << shift_amt;
 // Logical left shift
     assign shr  = A >> shift_amt; 
 // Logical right shift
-    assign ashr = $signed(A) >>> 
-shift_amt;      // Arithmetic right shift
+    assign ashr = $signed(A) >>> shift_amt;      // Arithmetic right shift
 endmodule
+
