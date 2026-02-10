@@ -1,9 +1,6 @@
 module t_ff_sync (
-    input  wire clk,
-    input  wire rst,   // synchronous reset
-    input  wire t,
-    output reg  q
-);
+    input  wire clk, rst,t,   // synchronous reset
+    output reg  q);
 
 always @(posedge clk) begin
     if (rst)
@@ -13,5 +10,5 @@ always @(posedge clk) begin
     else
         q <= q;  // hold state
 end
-
 endmodule
+
