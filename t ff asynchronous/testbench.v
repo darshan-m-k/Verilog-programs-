@@ -2,18 +2,10 @@
 
 module tb_t_ff_async;
 
-    reg clk;
-    reg rst_n;
-    reg t;
+    reg clk,rst_n,t;
     wire q;
 
-    // DUT
-    t_ff_async dut (
-        .clk(clk),
-        .rst_n(rst_n),
-        .t(t),
-        .q(q)
-    );
+    t_ff_async dut (clk,rst_n,t,q);
 
     // Clock generation: 10 ns period
     always #5 clk = ~clk;
@@ -45,11 +37,9 @@ module tb_t_ff_async;
 
         $finish;
     end
-
-    // Monitor
+    
     initial begin
-        $monitor("Time=%0t | clk=%b rst_n=%b t=%b q=%b", 
-                  $time, clk, rst_n, t, q);
+        $monitor("Time=%0t | clk=%b rst_n=%b t=%b q=%b", $time, clk, rst_n, t, q);
     end
-
 endmodule
+
