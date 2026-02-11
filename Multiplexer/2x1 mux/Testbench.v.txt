@@ -3,23 +3,14 @@
 
 module tb_mux2x1;
 
-    reg I0;
-    reg I1;
-    reg S;
+    reg I0,I1,S;
     wire Y;
 
-    // Instantiate DUT (Device Under Test)
-    mux2x1 dut (
-        .I0(I0),
-        .I1(I1),
-        .S(S),
-        .Y(Y)
-    );
+    mux2x1 dut (I0,I1,S);
 
     initial begin
-        // Monitor changes
-        $monitor("Time=%0t | S=%b I0=%b I1=%b | Y=%b",
-                  $time, S, I0, I1, Y);
+       
+        $monitor("Time=%0t | S=%b I0=%b I1=%b | Y=%b",$time, S, I0, I1, Y);
 
         // Test cases
         I0 = 0; I1 = 0; S = 0; #10;
@@ -34,5 +25,5 @@ module tb_mux2x1;
 
         $finish;
     end
-
 endmodule
+
