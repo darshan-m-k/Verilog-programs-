@@ -1,15 +1,10 @@
-module tb_mux_8x1;
+module mux_8x1_tb;
 
     reg  [7:0] d;
     reg  [2:0] sel;
     wire y;
 
-    // Instantiate DUT
-    mux_8x1 dut (
-        .d(d),
-        .sel(sel),
-        .y(y)
-    );
+    mux_8x1 dut (d,sel,y);
 
     initial begin
         // Apply inputs
@@ -28,8 +23,7 @@ module tb_mux_8x1;
     end
 
     initial begin
-        $monitor("Time=%0t | sel=%b | d=%b | y=%b", 
-                  $time, sel, d, y);
+        $monitor("Time=%0t | sel=%b | d=%b | y=%b",  $time, sel, d, y);
     end
-
 endmodule
+
