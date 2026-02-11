@@ -1,8 +1,7 @@
 module mux_8x1 (
-    input  [7:0] d,     // 8 data inputs
-    input  [2:0] sel,   // 3 select lines
-    output reg y
-);
+    input  [7:0] d,    
+    input  [2:0] sel,  
+    output reg y);
 
     always @(*) begin
         case (sel)
@@ -17,5 +16,5 @@ module mux_8x1 (
             default: y = 1'b0;
         endcase
     end
-
 endmodule
+
