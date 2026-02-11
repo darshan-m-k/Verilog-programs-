@@ -1,12 +1,9 @@
 ************************************ 2x1 mux-design ************************************
 module mux2x1 (
-    input  wire I0,
-    input  wire I1,
-    input  wire S,
-    output wire Y
-);
+    input  wire I0,I1,S,
+    output wire Y);
 
 assign Y = S ? I1 : I0;
-
 endmodule
+
 
