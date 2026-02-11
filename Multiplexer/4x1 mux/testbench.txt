@@ -6,12 +6,7 @@ module tb_mux41;
   reg  [1:0] S;
   wire Y;
 
-  // Instantiate DUT
-  mux41 dut (
-    .I(I),
-    .S(S),
-    .Y(Y)
-  );
+  mux41 dut (I,S,Y);
 
   initial begin
     $display("Time  S   I      Y");
@@ -49,5 +44,5 @@ module tb_mux41;
 
     $finish;
   end
-
 endmodule
+
