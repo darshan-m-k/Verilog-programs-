@@ -5,15 +5,9 @@ module genmux_tb;
   reg  [N-1:0] i;
   reg  [$clog2(N)-1:0] s;
   wire y;
-
   integer a;
 
-  // DUT instantiation
-  genmux #(N) dut (
-    .i(i),
-    .s(s),
-    .y(y)
-  );
+  genmux #(N) dut (i,s,y);
 
   initial begin
     for (a = 0; a < (1 << (N + $clog2(N))); a = a + 1) begin
@@ -24,13 +18,12 @@ module genmux_tb;
   end
 
   initial begin
-    $monitor("time=%0t | i=%b | s=%b | y=%b", 
-              $time, i, s, y);
+    $monitor("time=%0t | i=%b | s=%b | y=%b", $time, i, s, y);
   end
 
   initial begin
     $dumpfile("dump.vcd");
     $dumpvars(0, genmux_tb);
   end
-
 endmodule
+
