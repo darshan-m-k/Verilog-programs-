@@ -7,9 +7,7 @@ module updown_counter_tb;
   
   always #5 clk = ~clk;
 
-
   initial begin
-    // Initialize signals
     clk = 0;
     rst = 1;
     ctrl = 0;
@@ -25,8 +23,6 @@ module updown_counter_tb;
 
     // Count down again
     #30 ctrl = 0;
-
-    // Final count up
     #30 ctrl = 1;
 
     #50 $finish;
@@ -42,4 +38,5 @@ module updown_counter_tb;
     $dumpvars(0, clk,rst,ctrl,count);
   end
 endmodule
+
 
