@@ -2,9 +2,8 @@ module down_counter_3bit_async_tb;
     reg clk, rst;
     wire [2:0] count;
 
-    down_counter_3bit_async DUT (clk,rst,count);
+    down_counter_3bit_async dut (clk,rst,count);
        
-    // Clock generation
     always #5 clk = ~clk;
 
     initial begin
@@ -22,6 +21,7 @@ module down_counter_3bit_async_tb;
 
     initial begin
         $dumpfile("counter.vcd");
-        $dumpvars(0, down_counter_3bit_async_tb);
+        $dumpvars(0,clk,rst,count);
     end
 endmodule
+
