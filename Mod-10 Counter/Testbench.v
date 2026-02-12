@@ -8,6 +8,7 @@ module mod10_counter_tb;
         rst = 0;
       #10 rst = 1;
       #80;
+		
      // Reset again mid-simulation
         #10 rst = 0;
         #15 rst = 1;
@@ -27,3 +28,4 @@ module mod10_counter_tb;
             $dumpvars(0,clk,rst,count);
 		end
 endmodule
+
