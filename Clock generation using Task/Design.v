@@ -1,10 +1,7 @@
-//---------------- DESIGN ----------------
 module clk_gen (
     input  rst,
-    output reg clk
-);
+    output reg clk);
 
-    // Task to generate clock
     task cg;
     begin
         if (rst)
@@ -19,5 +16,5 @@ module clk_gen (
         cg();
         #2;        // Half period = 2 time units
     end
-
 endmodule
+
