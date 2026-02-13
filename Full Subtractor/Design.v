@@ -1,12 +1,10 @@
-module full_subtractor (
-    input A,
-    input B,
-    input Bin,
-    output D,
-    output Bout
-);
+//Dataflow Modelling
+
+module full_subtractor(
+    input A,B,Bin,
+    output D,Bout);
 
     assign D = A ^ B ^ Bin;
     assign Bout = (~A & B) | (~A & Bin) | (B & Bin);
-
 endmodule
+
