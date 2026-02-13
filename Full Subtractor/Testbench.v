@@ -1,26 +1,11 @@
 `timescale 1ns / 1ps
 
-module tb_full_subtractor;
+module full_subtractor_tb;
+    reg A,B,Bin;
+    wire D,Bout;
 
-    // Inputs
-    reg A;
-    reg B;
-    reg Bin;
+    full_subtractor uut (A,B,Bin,D,Bout);
 
-    // Outputs
-    wire D;
-    wire Bout;
-
-    // Instantiate the Unit Under Test (UUT)
-    full_subtractor uut (
-        .A(A),
-        .B(B),
-        .Bin(Bin),
-        .D(D),
-        .Bout(Bout)
-    );
-
-    // Test procedure
     initial begin
         $display("A B Bin | D Bout");
         $display("--------|--------");
@@ -52,5 +37,5 @@ module tb_full_subtractor;
 
         $finish;
     end
-
 endmodule
+
