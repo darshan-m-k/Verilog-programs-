@@ -1,33 +1,26 @@
-//---------------- TESTBENCH ----------------
 `timescale 1ns/1ps
 
-module tb_clk_gen;
-
+module clk_gen_tb;
     reg rst;
     wire clk;
 
-    // Instantiate DUT
-    clk_gen dut (
-        .rst(rst),
-        .clk(clk)
-    );
-
+    clk_gen dut (rst,clk);
+    
     // Reset sequence
     initial begin
         rst = 1;
         #10 rst = 0;   // release reset after 10ns
     end
 
-    // Simulation control
-    initial begin
-        $dumpfile("clk_gen.vcd");
-        $dumpvars(0, tb_clk_gen);
-        #100 $finish;
-    end
-
-    // Monitor
     initial begin
         $monitor("Time=%0t | rst=%b | clk=%b", $time, rst, clk);
     end
-
+    
+     initial begin
+        $dumpfile("clk_gen.vcd");
+        $dumpvars(0,rst,clk);
+         
+        #100 $finish;
+    end
 endmodule
+
