@@ -1,26 +1,12 @@
-module tb_full_subtractor;
+module full_subtractor_tb;
+    reg A,B,Bin;
+    wire D,Bout;
 
-    
-    reg A;
-    reg B;
-    reg Bin;
-    wire D;
-    wire Bout;
-
-    
-    full_subtractor uut (
-        .A(A),
-        .B(B),
-        .Bin(Bin),
-        .D(D),
-        .Bout(Bout)
-    );
-
+    full_subtractor dut (A,B,Bin,D,Bout);
     
     initial begin
         $display("A B Bin | D Bout");
         $display("--------|--------");
-
         
         A = 0; B = 0; Bin = 0; #10;
         $display("%b %b  %b  | %b   %b", A, B, Bin, D, Bout);
@@ -48,5 +34,5 @@ module tb_full_subtractor;
 
         $finish;
     end
-
 endmodule
+
