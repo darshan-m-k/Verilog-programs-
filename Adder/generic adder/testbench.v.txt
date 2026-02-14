@@ -11,13 +11,16 @@ module genadder_tb;
         #2;
       end
   end
+
   initial begin
     $monitor("time=%0t,a=%b,b=%b,s=%b",$time,a,b,s);
   end
+
   initial begin
     $dumpfile("dump.vcd");
     $dumpvars(0,a,b,s);
   end
 endmodule
   
+
 
