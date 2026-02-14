@@ -1,10 +1,9 @@
 
 module ha_tb;
-
   reg a, b;
   wire s, c;
-
-  ha uut (a,b,c,s,c);
+  
+  ha dut (a,b,c,s,c);
   
   initial begin
     $display("A B | S C");
@@ -25,4 +24,5 @@ module ha_tb;
     $finish;
   end
 endmodule
+
 
