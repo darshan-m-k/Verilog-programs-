@@ -9,7 +9,7 @@ module prime_det(A,B,C,F);
   and A1(w1,w3,B);
   and A2(w2,A,C);
   or O1(F,w1,w2);
-  endmodule /*
+  endmodule 
          
 //Dataflow modelling
 module prime_det(A,B,C,F);
@@ -17,4 +17,4 @@ module prime_det(A,B,C,F);
   output F;
   wire w1,w2,w3;
   assign F =  ((~A)&B)|(A&C);
-  endmodule 
+endmodule 
