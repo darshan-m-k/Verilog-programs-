@@ -4,7 +4,7 @@ module ALU_tb;
     reg [2:0] Sel;
     wire [3:0] ALU_Out;
     
-    ALU uut (.A(A),.B(B),.Sel(Sel),.ALU_Out(ALU_Out));
+    ALU uut (A,B,Sel,ALU_Out);
 
     initial begin
 
@@ -19,11 +19,13 @@ module ALU_tb;
    #10  A = 4'b0101; B = 4'b0101; Sel = 3'b001; 
 $finish;
     end
+    
   initial begin 
-    $monitor("simtime=%0t,A=%b,B=%b,Sel=%b,ALU_Out=%b",$time,A,B,Sel,ALU_Out);
+      $monitor("simtime=%0t, A=%b | B=%b | Sel=%b | ALU_Out=%b",$time,A,B,Sel,ALU_Out);
   end
+    
 initial begin
   $dumpfile("dump.vcd");
   $dumpvars(0,A,B,Sel,ALU_Out);
 end
-endmodule
+    endmodule
