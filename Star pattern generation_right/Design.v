@@ -1,0 +1,14 @@
+module star_right #(parameter N=4);
+  integer i,j;
+  initial begin
+    for(i=1;i<=N;i=i+1)begin
+      for(j=1;j<=i;j=j+1)begin
+        $write(" ");
+      end
+       for(j=1;j<=i;j=j+1)begin
+        $write("*");
+      end
+      $display();
+    end
+  end
+endmodule
