@@ -1,6 +1,5 @@
 module genmux_tb;
-
-  parameter N = 4;
+parameter N = 4;
 
   reg  [N-1:0] i;
   reg  [$clog2(N)-1:0] s;
@@ -26,4 +25,5 @@ module genmux_tb;
     $dumpvars(0, genmux_tb);
   end
 endmodule
+
 
