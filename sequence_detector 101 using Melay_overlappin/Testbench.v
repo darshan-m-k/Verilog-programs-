@@ -1,24 +1,22 @@
-module melay_seq_101_ov_test;
-reg in_seq,clk,rst;
-wire det_out;
+module melay_seq_101_ov_tb;
+  reg in_seq,clk,rst;
+  wire det_out;
   melay_seq_101_ov dut(in_seq,clk,rst,det_out);
 
 initial begin
-
-clk=0;
-rst=0;
-#12 rst=1;
-in_seq=1;
-#10 in_seq=0;
-#10 in_seq=1;
-#10 in_seq=0;
-#10 in_seq=1;
-#20 $finish;
-
+  clk=0;
+  rst=0;
+  #12 rst=1;
+  in_seq=1;
+  #10 in_seq=0;
+  #10 in_seq=1;
+  #10 in_seq=0;
+  #10 in_seq=1;
+  #20 $finish;
 end
-always #5clk=~clk;
-      initial begin
-        $monitor("simtime=%0t,in_seq=%b,clk=%b,rst=%b,det_out=%b", $time, in_seq,clk,rst,det_out);
+  always #5clk=~clk;
+  
+  initial begin
+    $monitor("simtime=%0t | in_seq=%b | clk=%b | rst=%b | det_out=%b", $time, in_seq,clk,rst,det_out);
   end
-
-endmodule
+    endmodule
