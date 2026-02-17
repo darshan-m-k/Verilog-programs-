@@ -1,72 +1,73 @@
 module melay_seq_10110_ov(in_seq,clk,rst,det_out);
-input in_seq,clk,rst;
-output reg det_out;
-reg [1:0] ps,ns;
-parameter idle=3'b00;
-parameter s1=3'b001;
-parameter s10=3'b010;
-parameter s101=3'b011;
-parameter s1011=3'b100;
+ input in_seq,clk,rst;
+ output reg det_out;
+ reg [1:0] ps,ns;
+ parameter idle=3'b00;
+ parameter s1=3'b001;
+ parameter s10=3'b010;
+ parameter s101=3'b011;
+ parameter s1011=3'b100;
 
-always@(posedge clk)
-begin
-if(!rst)
-ps<=idle;
-else
-ps<=ns;
+always@(posedge clk)begin
+ if(!rst)
+  ps<=idle;
+ else
+ ps<=ns;
 end
-always@(in_seq,ps)
-begin
-case(ps)
-idle:if(in_seq)begin
-ns=s1;
- det_out=0;
-end
-else begin
-ns=idle;
- det_out=0;
-end
+ 
+ always@(in_seq,ps)begin
+  case(ps)
+   idle:if(in_seq)begin
+    ns=s1;
+    det_out=0;
+   end
+    else begin
+     ns=idle;
+     det_out=0;
+    end
 
 s10:if(in_seq)begin
-ns=s101;
+ ns=s101;
  det_out=0;
 end
-else begin
-ns=idle;
- det_out=0;
-end
+ else begin
+  ns=idle;
+  det_out=0;
+ end
 
 s1:if(in_seq)begin
-ns=s1;
+ ns=s1;
  det_out=0;
 end
-else begin
-ns=s10;
- det_out=0;
-end
+ else begin
+  ns=s10;
+  det_out=0;
+ end
+   
 s101:if(in_seq)begin
-ns=s1011;
+ ns=s1011;
  det_out=0;
 end
-else begin
-ns=s10;
- det_out=0;
-end
+ else begin
+  ns=s10;
+  det_out=0;
+ end
 
 s1011:if(in_seq)begin
-ns=s1;
+ ns=s1;
  det_out=0;
 end
-else begin
-ns=s10;
- det_out=1;
-end
+ else begin
+  ns=s10;
+  det_out=1;
+ end
 
 default:begin
-ns=idle;
+ ns=idle;
  det_out=0;
 end
-endcase
-end
-endmodule
+ endcase
+   end
+  endmodule
+
 
