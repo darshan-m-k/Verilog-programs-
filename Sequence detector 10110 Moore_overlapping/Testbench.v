@@ -1,4 +1,4 @@
-module seq_101_mealy_ov_tb;
+module moore_seq_10110_ov_tb;
 	reg in_seq,clk,rst;
 	wire det_out;
 
@@ -32,4 +32,5 @@ moore_seq_10110_ov dut(in_seq,clk,rst,det_out);
     $dumpvars(0,in_seq,clk,rst,det_out);
   end
 	  endmodule
+
 
