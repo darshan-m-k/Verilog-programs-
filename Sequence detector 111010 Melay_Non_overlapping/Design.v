@@ -1,10 +1,8 @@
 module melay_seq_10110_nonov(in_seq, clk, rst, det_out);
-
  input in_seq, clk, rst;
  output reg det_out;
-
  reg [2:0] ps, ns;
-
+ 
  parameter idle  = 3'b000;
  parameter s1    = 3'b001;
  parameter s10   = 3'b010;
@@ -12,10 +10,10 @@ module melay_seq_10110_nonov(in_seq, clk, rst, det_out);
  parameter s1011 = 3'b100;
 
  always @(posedge clk) begin
-   if (!rst)
-     ps <= idle;
-   else
-     ps <= ns;
+  if (!rst)
+   ps <= idle;
+  else
+  ps <= ns;
  end
 
  always @(in_seq or ps) begin
@@ -47,14 +45,13 @@ module melay_seq_10110_nonov(in_seq, clk, rst, det_out);
        if (in_seq)
          ns = s1;
        else begin
-         ns = idle;     // no overlap
+         ns = idle;     
          det_out = 1;
        end
      end
 
      default: ns = idle;
-
    endcase
  end
+  endmodule
 
-endmodule
