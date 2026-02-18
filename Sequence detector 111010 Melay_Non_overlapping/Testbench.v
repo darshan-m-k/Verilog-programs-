@@ -1,14 +1,11 @@
-module tb_seq_10110;
-
+module mealy_111010_nonov_tb;
  reg clk, rst, in_seq;
  wire det_out;
 
-melay_seq_10110_nonov DUT (in_seq, clk, rst, det_out);
+melay_seq_10110_nonov dut (in_seq, clk, rst, det_out);
 
- // Clock generation
  always #5 clk = ~clk;
 
- // Continuous Monitor
  initial begin
    $monitor("TIME=%0t | in_seq=%b | det_out=%b", $time, in_seq, det_out);
  end
@@ -38,5 +35,5 @@ melay_seq_10110_nonov DUT (in_seq, clk, rst, det_out);
    $display("---- Simulation Finished ----");
    $finish;
  end
+  endmodule
 
-endmodule
