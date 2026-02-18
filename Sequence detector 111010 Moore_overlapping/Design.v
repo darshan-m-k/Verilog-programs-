@@ -1,31 +1,25 @@
 module moore_111010_ov(in_seq, clk, rst, det_out);
+ input in_seq, clk, rst;
+ output reg det_out;
+ reg [2:0] ps, ns;
+ 
+ parameter idle   = 3'b000;
+ parameter s1     = 3'b001;
+ parameter s11    = 3'b010;
+ parameter s111   = 3'b011;
+ parameter s1110  = 3'b100;
+ parameter s11101 = 3'b101;
+ parameter s111010= 3'b110;   
 
-input in_seq, clk, rst;
-output reg det_out;
-
-reg [2:0] ps, ns;
-
-// States
-parameter idle   = 3'b000;
-parameter s1     = 3'b001;
-parameter s11    = 3'b010;
-parameter s111   = 3'b011;
-parameter s1110  = 3'b100;
-parameter s11101 = 3'b101;
-parameter s111010= 3'b110;   // detect state
-
-// State Register
-always @(posedge clk)
-begin
+ 
+always @(posedge clk)begin
  if(!rst)
    ps <= idle;
  else
    ps <= ns;
 end
 
-// Next State Logic
-always @(ps, in_seq)
-begin
+always @(ps, in_seq)begin
  case(ps)
 
  idle:    if(in_seq) ns = s1;
@@ -43,7 +37,7 @@ begin
  s1110:   if(in_seq) ns = s11101;
           else ns = idle;
 
- s11101:  if(in_seq) ns = s11;    // overlap
+ s11101:  if(in_seq) ns = s11;    
           else ns = s111010;
 
  s111010: if(in_seq) ns = s1;
@@ -54,9 +48,7 @@ begin
  endcase
 end
 
-// Output Logic (Moore)
-always @(ps)
-begin
+always @(ps)begin
  if(ps == s111010)
    det_out = 1;
  else
@@ -64,3 +56,4 @@ begin
 end
 
 endmodule
+
