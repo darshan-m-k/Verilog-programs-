@@ -1,39 +1,36 @@
 module mealy_111010_nonov_tb;
  reg clk, rst, in_seq;
  wire det_out;
+ 
+ mealy_111010_nonov dut(in_seq, clk, rst, det_out);
 
-melay_seq_10110_nonov dut (in_seq, clk, rst, det_out);
-
- always #5 clk = ~clk;
-
+always #5 clk = ~clk;
+ 
  initial begin
-   $monitor("TIME=%0t | in_seq=%b | det_out=%b", $time, in_seq, det_out);
- end
+  clk = 0;
+  rst = 0;
+  in_seq = 0;
+  #10 rst = 1;
 
- initial begin
-   clk = 0;
-   rst = 0;
-   in_seq = 0;
+ #10 in_seq=1;
+ #10 in_seq=1;
+ #10 in_seq=1;
+ #10 in_seq=0;
+ #10 in_seq=1;
+ #10 in_seq=0;
 
-   #10 rst = 1;
-   $display("---- Applying Input Sequence 10110 ----");
+ // again
+ #10 in_seq=1;
+ #10 in_seq=1;
+ #10 in_seq=1;
+ #10 in_seq=0;
+ #10 in_seq=1;
+ #10 in_seq=0;
 
-   // Input : 10110 10110
-   in_seq=1; #10;
-   in_seq=0; #10;
-   in_seq=1; #10;
-   in_seq=1; #10;
-   in_seq=0; #10;
+ #40 $finish;
+end
 
-   in_seq=1; #10;
-   in_seq=0; #10;
-   in_seq=1; #10;
-   in_seq=1; #10;
-   in_seq=0; #10;
-
-   #20;
-   $display("---- Simulation Finished ----");
-   $finish;
- end
-  endmodule
-
+initial begin
+ $monitor("Time=%0t | In=%b | Detected=%b",$time, in_seq, det_out);
+end
+ endmodule
