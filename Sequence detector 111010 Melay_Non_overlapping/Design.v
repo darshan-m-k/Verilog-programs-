@@ -1,4 +1,4 @@
-module melay_seq_10110_nonov(in_seq, clk, rst, det_out);
+module melay_seq_111010_nonov(in_seq, clk, rst, det_out);
  input in_seq, clk, rst;
  output reg det_out;
  reg [2:0] ps, ns;
@@ -54,4 +54,5 @@ module melay_seq_10110_nonov(in_seq, clk, rst, det_out);
    endcase
  end
   endmodule
+
 
