@@ -56,3 +56,4 @@ module melay_seq_111010_nonov(in_seq, clk, rst, det_out);
   endmodule
 
 
+
