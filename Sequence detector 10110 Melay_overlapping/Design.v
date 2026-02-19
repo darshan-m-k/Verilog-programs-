@@ -2,6 +2,7 @@ module melay_seq_10110_ov(in_seq,clk,rst,det_out);
  input in_seq,clk,rst;
  output reg det_out;
  reg [1:0] ps,ns;
+ 
  parameter idle=3'b00;
  parameter s1=3'b001;
  parameter s10=3'b010;
@@ -69,5 +70,6 @@ end
  endcase
    end
   endmodule
+
 
 
