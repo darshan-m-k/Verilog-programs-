@@ -36,8 +36,7 @@ module moore_seq_10110_ov(in_seq,clk,rst,det_out);
 					ns=s10;
 					det_out= 0;
 				end
-
-
+					
 			s10: if(in_seq) begin
 				ns=s101;
 				det_out= 0;
@@ -80,6 +79,7 @@ module moore_seq_10110_ov(in_seq,clk,rst,det_out);
 						endcase
 			end
 		endmodule
+
 
 
 
