@@ -1,16 +1,15 @@
-// Code your testbench here
-// or browse Examples
 `timescale 1ns / 1ps
-
-module test;
-  reg clk;
-  reg d;
+module output_gen_posedge clk_tb;
+  reg clk,d;
   wire q;
-  d dut ( .clk(clk),.d(d),.q(q));
+  
+output_gen_posedge clk  dut (clk,d,q);
+  
   initial begin
     clk = 0;
     forever #5 clk = ~clk;
   end
+  
     initial begin
        d = 0;
     #12 d = 1;
@@ -23,13 +22,13 @@ module test;
     #10 d = 1;
     #20 $finish;
   end
+  
   initial begin
     $dumpfile("dump.vcd");
     $dumpvars(0,clk,d,q);
   end
   
   initial begin
-    $monitor("Time=%0t, clk=%b , d=%b ,q=%b", $time, clk, d, q);
+    $monitor("Time=%0t | clk=%b | d=%b | q=%b", $time, clk, d, q);
   end
-
-endmodule
+    endmodule
