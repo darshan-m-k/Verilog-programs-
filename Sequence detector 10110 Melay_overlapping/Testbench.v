@@ -15,7 +15,7 @@ module melay_seq_10110_ov_tb;
 
         // Apply reset
         #10 rst = 1;
-
+        
         #10 in_seq = 1;
         #10 in_seq = 0;
         #10 in_seq = 1;
@@ -40,4 +40,5 @@ module melay_seq_10110_ov_tb;
         $dumpvars(0, in_seq,clk,rst,det_out);
     end
         endmodule
+
 
