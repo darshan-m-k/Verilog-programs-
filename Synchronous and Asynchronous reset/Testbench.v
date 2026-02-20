@@ -1,11 +1,8 @@
 module sync_async_reset_tb;
-
-  reg clk;
-  reg rst_n;
+  reg clk,rst_n;
   wire [7:0] counter;
 
- 
-  sync_async_reset dut (clk,rst_n,counter);
+ sync_async_reset dut (clk,rst_n,counter);
    
   always #5 clk = ~clk;
 
@@ -31,5 +28,5 @@ module sync_async_reset_tb;
   initial begin
     $monitor("Time=%0t | clk=%b | rst_n=%b | counter=%0d", $time, clk, rst_n, counter);
   end
+    endmodule
 
-endmodule
