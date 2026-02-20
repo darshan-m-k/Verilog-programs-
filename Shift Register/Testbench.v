@@ -1,13 +1,8 @@
-module tb;
+module shift_register_tb;
   reg clk, rst, data_in;
   wire data_out;
 
-  shift_register uut (
-    .clk(clk),
-    .rst(rst),
-    .data_in(data_in),
-    .data_out(data_out)
-  );
+  shift_register dut (clk, rst, data_in,data_out);
 
   
   always #5 clk = ~clk;
@@ -15,8 +10,6 @@ module tb;
   initial begin
     clk = 0; rst = 0; data_in = 0;
     #10 rst = 1;
-
-    
     #10 data_in = 1;
     #10 data_in = 0;
     #10 data_in = 1;
@@ -27,4 +20,5 @@ module tb;
   initial begin
     $monitor("Time=%0t | data_in=%b | mem_out=%b", $time, data_in, data_out);
   end
-endmodule
+    endmodule
+
