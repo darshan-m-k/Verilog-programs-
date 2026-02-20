@@ -1,9 +1,8 @@
-module fd_tb;
-  wire clk_out;
+module FD_tb;
   reg clk, rst;
-
+  wire clk_out;
  
-  fd dut(clk, rst, clk_out);
+  FD dut(clk, rst, clk_out);
   
   always #5 clk = ~clk;
   
@@ -26,4 +25,5 @@ module fd_tb;
     $dumpvars(0, clk, rst, clk_out);
   end
     endmodule
+
 
