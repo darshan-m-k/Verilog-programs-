@@ -1,12 +1,8 @@
 module sync_async_reset(
-    input wire clk,
-    input wire rst_n, 
-    output reg [7:0] counter
-);
-
+    input wire clk, rst_n, 
+    output reg [7:0] counter);
     reg reset_sync;
-
-   
+    
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n)
             reset_sync <= 1'b1; 
@@ -20,5 +16,4 @@ module sync_async_reset(
         else
             counter <= counter + 1'b1;
     end
-
-endmodule
+        endmodule
