@@ -18,10 +18,11 @@ module tb;
         1'bx: countx = countx + 1;
         1'bz: countz = countz + 1;
       endcase
-    end
+        end
     $display("Count of 0s: %0d", count0);
     $display("Count of 1s: %0d", count1);
     $display("Count of Xs: %0d", countx);
     $display("Count of Zs: %0d", countz);
   end
-endmodule
+    endmodule
+
