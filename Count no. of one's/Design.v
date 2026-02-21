@@ -1,4 +1,4 @@
-module test;
+module tb;
   reg  [6:0] a;
   reg  [2:0] y;
   integer i;
@@ -12,6 +12,6 @@ module test;
         y = y + 1;
     end
 
-    $display("Input a = %b, Number of 1s = %0d", a, y);
+    $display("Input a = %b | Number of 1s = %0d", a, y);
   end
-endmodule
+    endmodule
