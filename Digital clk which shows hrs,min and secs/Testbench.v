@@ -10,5 +10,10 @@ module clock_digi_tb;
   #100000 $finish;
  end
   always #5 clk=~clk;
+  initial begin
+ $dumpfile("dump.vcd");
+ $dumpvars(1,clk,rst,hours,mins,secs);
+ end
 endmodule
+
 
