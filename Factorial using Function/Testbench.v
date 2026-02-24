@@ -4,7 +4,7 @@ module factorial_tb;
   
   factorial dut(N,facto);
   initial begin
-    N= 3;
+       N= 3;
     #2 N=2;
     #3 N=4;
   end
@@ -12,3 +12,4 @@ module factorial_tb;
       $monitor(N,facto);
     end
       endmodule
+
