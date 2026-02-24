@@ -1,3 +1,4 @@
+//Design code for Inter
 module delay_tb; //(blocking)
   reg signed [31:0] a, b, c, d;
   initial begin
@@ -23,3 +24,4 @@ end
     $monitor("Simtime=%0t | a=%0d | b=%0d | c=%0d | d=%0d", $time, a, b,c,d);
   end
     endmodule
+
