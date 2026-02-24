@@ -1,4 +1,4 @@
-module test;
+module tb;
    integer a,b,c,d;
    initial begin
       #2 a<= #1 3; 
@@ -11,3 +11,4 @@ initial begin
    $monitor("Sim time= %0t | A= %0d | b=%0d | c=%0d | d= %0d", $time,a,b,c,d);
 end
    endmodule
+
