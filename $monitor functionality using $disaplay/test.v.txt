@@ -1,0 +1,13 @@
+module test;
+  int a,b;
+  initial begin
+    a = 10;
+    b = 20;
+    #5 a = 15;
+    #5 b = 25;
+    #5 a = 30;
+  end
+    always@(*)begin
+      $display("time =%0d.a =%0d,b=%0d",$time ,a,b);
+    end
+endmodule
